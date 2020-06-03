@@ -5,7 +5,7 @@ PyGAMP is a simple implementation of the Google Analytics Measurement Protocol A
 #### Installation
 PyGAMP can be installed via PyPi by issuing the command `pip3 install pygamp`.
 
-####Features
+#### Features
 PyGAMP currently supports the following features of Google Analytics Measurement Protocol: 
 
 * App screenviews

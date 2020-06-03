@@ -1,9 +1,10 @@
 from .transport import send
 
 
-def refund_transaction(cid, transaction_id: str):
+def refund_transaction(cid, property_id: str, transaction_id: str):
     """Create a Google Analytics transaction refund using the Measurement Protocol API.
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_id: Transaction ID
     :return: HTTP response status
     """
@@ -17,13 +18,14 @@ def refund_transaction(cid, transaction_id: str):
         'ni': 1,
         'pa': 'refund'
     }
-    send(payload)
+    send(payload, property_id)
 
 
-def refund_items(cid, transaction_id: str, item_code: str, item_quantity: int):
+def refund_items(cid, property_id: str, transaction_id: str, item_code: str, item_quantity: int):
     """Create a Google Analytics item refund using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_id: Transaction ID
     :param item_code: Item code, i.e. ABC1
     :param item_quantity: Quantity of units to refund, i.e. 3
@@ -41,10 +43,11 @@ def refund_items(cid, transaction_id: str, item_code: str, item_quantity: int):
         'ni': 1,
         'pa': 'refund'
     }
-    send(payload)
+    send(payload, property_id)
 
 
 def promotion_impression(cid,
+                         property_id: str,
                          document_hostname: str,
                          document_path: str,
                          document_title: str,
@@ -56,6 +59,7 @@ def promotion_impression(cid,
     """Create a Google Analytics promotion impression using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param document_hostname: Document hostname, i.e. example.com
     :param document_path: Document path, i.e. /about
     :param document_title: Document title, i.e. About us
@@ -78,10 +82,11 @@ def promotion_impression(cid,
         'promo' + str(promotion_index) + 'cr': promotion_creative,
         'promo' + str(promotion_index) + 'ps': promotion_position,
     }
-    send(payload)
+    send(payload, property_id)
 
 
 def promotion_click(cid,
+                    property_id: str,
                     promotion_index: int,
                     promotion_id: str,
                     promotion_name: str,
@@ -90,6 +95,7 @@ def promotion_click(cid,
     """Create a Google Analytics promotion click using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param promotion_index: Promotion index slot (integer between 1 and 200)
     :param promotion_id: Promotion ID, i.e. PROMO_123
     :param promotion_name: Promotion name, i.e. Summer sale
@@ -110,13 +116,14 @@ def promotion_click(cid,
         'promo' + str(promotion_index) + 'cr': promotion_creative,
         'promo' + str(promotion_index) + 'ps': promotion_position,
     }
-    send(payload)
+    send(payload, property_id)
 
 
-def checkout_option(cid, transaction_id: str, checkout_step_number: int, checkout_option_label: str):
+def checkout_option(cid, property_id: str, transaction_id: str, checkout_step_number: int, checkout_option_label: str):
     """Record a Google Analytics checkout option using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_id: Transaction ID
     :param checkout_step_number: Checkout step number, i.e. 2
     :param checkout_option_label: Checkout option label, i.e. FedEx
@@ -132,10 +139,11 @@ def checkout_option(cid, transaction_id: str, checkout_step_number: int, checkou
         'cos': checkout_step_number,
         'col': checkout_option_label,
     }
-    send(payload)
+    send(payload, property_id)
 
 
 def checkout_step(cid,
+                  property_id: str,
                   transaction_id: str,
                   document_hostname: str,
                   document_path: str,
@@ -145,6 +153,7 @@ def checkout_step(cid,
     """Record a Google Analytics checkout step using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_id: Transaction ID
     :param document_hostname: Document hostname, i.e. example.com
     :param document_path: Document path, i.e. /payment
@@ -166,10 +175,11 @@ def checkout_step(cid,
         'cos': checkout_step_number,
         'col': checkout_step_label,
     }
-    send(payload)
+    send(payload, property_id)
 
 
 def enhanced_transaction(cid,
+                         property_id: str,
                          document_hostname: str,
                          document_path: str,
                          document_title: str,
@@ -184,6 +194,7 @@ def enhanced_transaction(cid,
     formats and merges the payloads before passing them to the API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param document_hostname: Document hostname, i.e. example.com
     :param document_path: Document path, i.e. /payment
     :param document_title: Document title, i.e. Checkout complete
@@ -210,7 +221,7 @@ def enhanced_transaction(cid,
     }
 
     payload = {**payload, **enhanced_transaction_items(items)}
-    send(payload)
+    send(payload, property_id)
 
 
 def enhanced_transaction_items(items: dict):

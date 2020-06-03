@@ -2,6 +2,7 @@ from .transport import send
 
 
 def screenview(cid,
+               property_id: str,
                app_name: str,
                app_version: str,
                screen_name: str,
@@ -16,6 +17,7 @@ def screenview(cid,
     :param screen_name: Screen name, i.e. Home
     :param app_version: Application version number, i.e. 1.0.3
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :return: HTTP response status
     """
 
@@ -28,4 +30,4 @@ def screenview(cid,
         'aiid': app_installer_id,
         'cd': screen_name
     }
-    send(payload)
+    send(payload, property_id)

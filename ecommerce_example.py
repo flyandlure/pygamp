@@ -8,20 +8,20 @@ from pygamp.enhanced_ecommerce import enhanced_transaction
 client_id = str(uuid.uuid4())
 
 # Transaction
-#transaction(client_id, '90890', 19.90, 5.00, 0.00, 'GBP', 'Website', 'COUPON1')
-#item(client_id, '90890', 'Test item', 1.99, 10, 'ABC1', 'GBP', 'Widgets')
+#transaction(client_id, 'UA-18841631-1', '90890', 19.90, 5.00, 0.00, 'GBP', 'Website', 'COUPON1')
+#item(client_id, 'UA-18841631-1', '90890', 'Test item', 1.99, 10, 'ABC1', 'GBP', 'Widgets')
 
 # Enhanced ecommerce - Refunds
-#refund_items(client_id, '12345', 'ABC1', 1)
-#refund_transaction(client_id, '12345')
+#refund_items(client_id, 'UA-18841631-1', '12345', 'ABC1', 1)
+#refund_transaction(client_id, 'UA-18841631-1', '12345')
 
 # Enhanced ecommerce - Internal promotions
-#promotion_impression(client_id, 'example.com', 'about-us', 'About us', 2, 'PROMO1', 'Summer sale', 'Summer', 'Slot 1')
-#promotion_click(client_id, 2, 'PROMO1', 'Summer sale', 'Summer', 'Slot 1')
+#promotion_impression(client_id, 'UA-18841631-1', 'example.com', 'about-us', 'About us', 2, 'PROMO1', 'Summer sale', 'Summer', 'Slot 1')
+#promotion_click(client_id, 'UA-18841631-1', 2, 'PROMO1', 'Summer sale', 'Summer', 'Slot 1')
 
 # Enhanced ecommerce - Checkout option
-#checkout_option(client_id, '12345', 1, 'DHL')
-#checkout_step(client_id, '12345', 'example.com', '/order', 'Order complete', 5, 'Checkout complete')
+#checkout_option(client_id, 'UA-18841631-1', '12345', 1, 'DHL')
+#checkout_step(client_id, 'UA-18841631-1', '12345', 'example.com', '/order', 'Order complete', 5, 'Checkout complete')
 
 items = {
     1: {'product_id': 'ABC1',
@@ -50,7 +50,7 @@ items = {
 }
 
 # Enhanced ecommerce - Transaction
-enhanced_transaction(client_id, 'example.com', '/order', 'Order complete', '12345', 199.99, 40.00, 0.00, '', items)
+enhanced_transaction(client_id, 'UA-18841631-1', 'example.com', '/order', 'Order complete', '12345', 199.99, 40.00, 0.00, '', items)
 
 #  https://developers.google.com/analytics/solutions/crm-mp-integration
 

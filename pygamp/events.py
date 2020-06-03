@@ -2,6 +2,7 @@ from .transport import send
 
 
 def event(cid,
+          property_id: str,
           category: str,
           action: str,
           label: str = None,
@@ -10,6 +11,7 @@ def event(cid,
     """Create a Google Analytics event using the Measurement Protocol API.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param category: Event category string
     :param action: Event action string
     :param label: Optional event label string
@@ -27,4 +29,4 @@ def event(cid,
         'ev': str(int(value)),
         'ni': non_interactive
     }
-    send(payload)
+    send(payload, property_id)

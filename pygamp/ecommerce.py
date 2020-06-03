@@ -2,6 +2,7 @@ from .transport import send
 
 
 def transaction(cid,
+                property_id: str,
                 transaction_id: str,
                 transaction_revenue: float,
                 transaction_tax: float,
@@ -15,6 +16,7 @@ def transaction(cid,
     and Google Analytics will link them together using the common transaction_id.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_coupon: Transaction coupon used
     :param transaction_shipping: Transaction shipping charge
     :param transaction_tax: Transaction tax charge
@@ -35,10 +37,11 @@ def transaction(cid,
                'tcc': transaction_coupon,
                'cu': transaction_currency,
                }
-    send(payload)
+    send(payload, property_id)
 
 
 def item(cid,
+         property_id: str,
          transaction_id: str,
          item_name: str,
          item_price: float,
@@ -52,6 +55,7 @@ def item(cid,
     and Google Analytics will link them together using the common transaction_id.
 
     :param cid: Client ID
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :param transaction_id: Transaction ID
     :param item_variation: Item variation or category, i.e. Widgets
     :param item_currency: Item currency code, i.e. GBP
@@ -72,4 +76,4 @@ def item(cid,
                'iv': item_variation,
                'cu': item_currency,
                }
-    send(payload)
+    send(payload, property_id)

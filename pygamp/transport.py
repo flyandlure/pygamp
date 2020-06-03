@@ -1,21 +1,21 @@
 import requests
 import random
 
-ua_property = 'UA-650256-4'
 endpoint = 'https://www.google-analytics.com/collect'
 user_agent = 'PyGAMP'
 
 
-def send(payload):
+def send(payload, property_id):
     """Send a payload to Google Analytics using the Measurement Protocol API.
 
     :param payload: Python dictionary of URL key value pairs
+    :param property_id: Universal Analytics property ID, i.e. UA-123456-1
     :return: HTTP response status
     """
 
     required_payload = {
         'v': 1,
-        'tid': ua_property,
+        'tid': property_id,
         'aip': 1,
         'z': random.random()
     }

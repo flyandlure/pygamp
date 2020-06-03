@@ -12,4 +12,4 @@ using a JavaScript function and then needs to be stored in the database and asso
 from pygamp.custom_definitions import custom_dimension
 
 
-custom_dimension('123456789', '5', 'RFM 555')
+custom_dimension('123456789', 'UA-18841631-1', '5', 'RFM 555')
