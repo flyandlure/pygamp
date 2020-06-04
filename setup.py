@@ -6,11 +6,11 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='PyGAMP',
-    packages=['PyGAMP'],
-    version='0.11',
+    name='pygamp',
+    packages=['pygamp'],
+    version='0.112',
     license='MIT',
-    description='PyGAMP is a Python package for Google Analytics Measurement Protocol',
+    description='pygamp is a Python package for Google Analytics Measurement Protocol',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Matt Clarke',

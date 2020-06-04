@@ -2,7 +2,7 @@ import requests
 import random
 
 endpoint = 'https://www.google-analytics.com/collect'
-user_agent = 'PyGAMP'
+user_agent = 'pygamp'
 
 
 def send(payload, property_id):
