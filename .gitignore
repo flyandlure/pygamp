@@ -1,2 +1,6 @@
 .venv
 .idea
+tests
+PyGAMP.egg-info
+dist
+build
