@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='pygamp',
     packages=['pygamp'],
-    version='0.112',
+    version='0.113',
     license='MIT',
     description='pygamp is a Python package for Google Analytics Measurement Protocol',
     long_description=long_description,

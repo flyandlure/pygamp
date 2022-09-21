@@ -1,4 +1,4 @@
-Babel==2.8.0
+babel>=2.9.1
 certifi==2020.4.5.1
 chardet==3.0.4
 dict==2019.4.13
@@ -9,6 +9,6 @@ pytz==2020.1
 requests==2.23.0
 send==0.2.0
 typing==3.7.4.1
-urllib3==1.25.9
+urllib3>=1.26.5
 uuid==1.30
 values==2019.4.13
